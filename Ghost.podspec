@@ -29,9 +29,9 @@ Pod::Spec.new do |s|
     ss.dependency 'Ghost/Core'
     ss.source_files  = "Ghost/URLSession/*.{h,swift}"
   end
-  
+
   s.subspec 'NightWatch' do |ss|
-    ss.dependency 'Ghost/NightWatch'
+    ss.dependency 'Ghost/Core'
     ss.source_files  = "Ghost/NightWatch/*.{h,swift}"
   end
 end
