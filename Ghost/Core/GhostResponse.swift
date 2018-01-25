@@ -31,12 +31,14 @@ public struct GhostResponse {
     public weak var ghostTask: GhostTask?
 
     public let responseObject: Any?
+    
+    public let response: URLResponse?
 
 }
 
 extension GhostResponse {
 
-    public init(_ url: URL? = nil, mimeType: String? = nil, contentLength: Int64 = -1, textEncoding: String? = nil, filename: String? = nil, statusCode: Int? = nil, headers: [AnyHashable : Any]? = nil, localizedDescription: String? = nil, userInfo: [AnyHashable : Any]? = nil, ghostTask: GhostTask?, responseObject: Any? = nil) {
+    public init(_ url: URL? = nil, mimeType: String? = nil, contentLength: Int64 = -1, textEncoding: String? = nil, filename: String? = nil, statusCode: Int? = nil, headers: [AnyHashable : Any]? = nil, localizedDescription: String? = nil, userInfo: [AnyHashable : Any]? = nil, ghostTask: GhostTask?, responseObject: Any? = nil, response: URLResponse?) {
         self.url = url
         self.mimeType = mimeType
         self.contentLength = contentLength != -1 ? contentLength : nil
@@ -48,6 +50,7 @@ extension GhostResponse {
         self.userInfo = userInfo
         self.ghostTask = ghostTask
         self.responseObject = responseObject
+        self.response = response
     }
 
 }

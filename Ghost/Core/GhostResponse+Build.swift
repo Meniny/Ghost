@@ -33,6 +33,8 @@ extension GhostResponse {
         public private(set) weak var ghostTask: GhostTask?
         
         public private(set) var responseObject: Any?
+        
+        public private(set) var response: URLResponse?
 
         public init(_ ghostResponse: GhostResponse? = nil) {
             url = ghostResponse?.url
@@ -46,6 +48,7 @@ extension GhostResponse {
             userInfo = ghostResponse?.userInfo
             ghostTask = ghostResponse?.ghostTask
             responseObject = ghostResponse?.responseObject
+            response = ghostResponse?.response
         }
 
         @discardableResult open func setURL(_ url: URL?) -> Self {
@@ -118,7 +121,7 @@ extension GhostResponse {
     }
 
     public init(_ builder: Builder) {
-        self.init(builder.url, mimeType: builder.mimeType, contentLength: builder.contentLength, textEncoding: builder.textEncoding, filename: builder.filename, statusCode: builder.statusCode, headers: builder.headers, localizedDescription: builder.localizedDescription, userInfo: builder.userInfo, ghostTask: builder.ghostTask, responseObject: builder.responseObject)
+        self.init(builder.url, mimeType: builder.mimeType, contentLength: builder.contentLength, textEncoding: builder.textEncoding, filename: builder.filename, statusCode: builder.statusCode, headers: builder.headers, localizedDescription: builder.localizedDescription, userInfo: builder.userInfo, ghostTask: builder.ghostTask, responseObject: builder.responseObject, response: builder.response)
     }
 
 }

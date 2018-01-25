@@ -11,7 +11,7 @@ import Foundation
 extension GhostResponse {
 
     public init(_ httpResponse: HTTPURLResponse, _ ghostTask: GhostTask? = nil, _ responseObject: Any? = nil) {
-        self.init(httpResponse.url, mimeType: httpResponse.mimeType, contentLength: httpResponse.expectedContentLength, textEncoding: httpResponse.textEncodingName, filename: httpResponse.suggestedFilename, statusCode: httpResponse.statusCode, headers: httpResponse.allHeaderFields, localizedDescription: HTTPURLResponse.localizedString(forStatusCode: httpResponse.statusCode), ghostTask: ghostTask, responseObject: responseObject)
+        self.init(httpResponse.url, mimeType: httpResponse.mimeType, contentLength: httpResponse.expectedContentLength, textEncoding: httpResponse.textEncodingName, filename: httpResponse.suggestedFilename, statusCode: httpResponse.statusCode, headers: httpResponse.allHeaderFields, localizedDescription: HTTPURLResponse.localizedString(forStatusCode: httpResponse.statusCode), ghostTask: ghostTask, responseObject: responseObject, response: httpResponse)
     }
 
 }
