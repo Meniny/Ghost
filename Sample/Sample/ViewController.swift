@@ -13,7 +13,7 @@ enum SampleType: String {
     case async  = "Asynchronous"
     case sync   = "Synchronous"
     case decode = "Decode"
-    case nightWatchAsync = "NightWatch-Asynchronous"
+    case hunterAsync = "GhostHunter-Asynchronous"
     
     var selector: Selector {
         switch self {
@@ -23,12 +23,12 @@ enum SampleType: String {
             return #selector(ViewController.sample_sync)
         case .decode:
             return #selector(ViewController.sample_decode)
-        case .nightWatchAsync:
-            return #selector(ViewController.sample_nw_asynx)
+        case .hunterAsync:
+            return #selector(ViewController.sample_gh_async)
         }
     }
     
-    static let all: [SampleType] = [.async, .sync, .decode, .nightWatchAsync]
+    static let all: [SampleType] = [.async, .sync, .decode, .hunterAsync]
 }
 
 class ViewController: UITableViewController {
@@ -121,7 +121,7 @@ class ViewController: UITableViewController {
         }
     }
     
-    @objc func sample_nw_asynx() {
+    @objc func sample_gh_async() {
         let u = URL.init(string: self.url)!
         
         do {
