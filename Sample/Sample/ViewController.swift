@@ -125,7 +125,7 @@ class ViewController: UITableViewController {
         let u = URL.init(string: self.url)!
         
         do {
-            try NightWatch.async(.GET, url: u, parameters: nil, headers: nil) { (response, error) in
+            try GhostHunter.async(.GET, url: u, parameters: nil, headers: nil) { (response, error) in
                 do {
                     if let result: Response = try response?.decode() {
                         self.display(result.about.joined(separator: "\n------\n"))

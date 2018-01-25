@@ -212,24 +212,24 @@ do {
 }
 ```
 
-## 🌙 NightWatch
+## 🌙 GhostHunter
 
 ```swift
 let url = URL.init(string: "YOUR_URL")!
 do {
-    try NightWatch.async(.GET, url: url, parameters: ["YOUR_PARAMS": 0], headers: ["YOUR_HEADER": "YES"]]) { (response, error) in
+    try GhostHunter.async(.GET, url: url, parameters: ["YOUR_PARAMS": 0], headers: ["YOUR_HEADER": "YES"]]) { (response, error) in
         do {
             if let result: SomeCodableType = try response?.decode() {
-                print("NightWatch Asynchronous: \(result)")
+                print("GhostHunter Asynchronous: \(result)")
             } else if let error = error {
-                print("NightWatch Asynchronous: Ghost error: \(error)")
+                print("GhostHunter Asynchronous: Ghost error: \(error)")
             }
         } catch {
-            print("NightWatch: Parse error: \(error)")
+            print("GhostHunter: Parse error: \(error)")
         }
     }
 } catch {
-    print("NightWatch: Request error: \(error)")
+    print("GhostHunter: Request error: \(error)")
 }
 ```
 

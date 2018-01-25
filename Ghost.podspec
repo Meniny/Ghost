@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.framework        = 'Foundation'
   s.module_name      = 'Ghost'
-  s.default_subspecs = 'Core', 'URLSession', 'NightWatch'
+  s.default_subspecs = 'Core', 'URLSession', 'Hunter'
 
   s.subspec 'Core' do |ss|
     ss.source_files  = "Ghost/Core/*.{h,swift}"
@@ -30,8 +30,8 @@ Pod::Spec.new do |s|
     ss.source_files  = "Ghost/URLSession/*.{h,swift}"
   end
 
-  s.subspec 'NightWatch' do |ss|
+  s.subspec 'Hunter' do |ss|
     ss.dependency 'Ghost/Core'
-    ss.source_files  = "Ghost/NightWatch/*.{h,swift}"
+    ss.source_files  = "Ghost/Hunter/*.{h,swift}"
   end
 end

@@ -118,3 +118,20 @@ extension GhostError: CustomNSError {
     }
 
 }
+
+public extension GhostError {
+    public static func ghostError(from error: Error) -> GhostError {
+        return GhostError.ghost(code: error._code,
+                                message: error.localizedDescription,
+                                headers: nil,
+                                object: nil,
+                                underlying: error)
+    }
+    
+    public static func parseError(from error: Error) -> GhostError {
+        return GhostError.parse(code: error._code,
+                                message: error.localizedDescription,
+                                object: nil,
+                                underlying: error)
+    }
+}

@@ -9,8 +9,12 @@
 import Foundation
 
 public class GhostURLSession: Ghost {
+    
+    public static var shared: Ghost {
+        return self.default
+    }
 
-    open static let shared: Ghost = GhostURLSession(URLSession.shared)
+    open static let `default` = GhostURLSession(URLSession.shared)
 
     open static let defaultCache: URLCache = {
         let defaultMemoryCapacity = 4 * 1024 * 1024
