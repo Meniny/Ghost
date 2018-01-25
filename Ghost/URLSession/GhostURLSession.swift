@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class GhostURLSession: Ghost {
+open class GhostURLSession: Ghost {
     
-    public static var shared: Ghost {
+    open static var shared: Ghost {
         return self.default
     }
 
