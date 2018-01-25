@@ -212,6 +212,27 @@ do {
 }
 ```
 
+## NightWatch
+
+```swift
+let url = URL.init(string: "YOUR_URL")!
+do {
+    try NightWatch.async(.GET, url: url, parameters: ["YOUR_PARAMS": 0], headers: ["YOUR_HEADER": "YES"]]) { (response, error) in
+        do {
+            if let result: SomeCodableType = try response?.decode() {
+                print("NightWatch Asynchronous: \(result)")
+            } else if let error = error {
+                print("NightWatch Asynchronous: Ghost error: \(error)")
+            }
+        } catch {
+            print("NightWatch: Parse error: \(error)")
+        }
+    }
+} catch {
+    print("NightWatch: Request error: \(error)")
+}
+```
+
 ## ❤️ Contribution
 
 You are welcome to fork and submit pull requests.

@@ -13,6 +13,7 @@ enum SampleType: String {
     case async  = "Asynchronous"
     case sync   = "Synchronous"
     case decode = "Decode"
+    case nightWatchAsync = "NightWatch-Asynchronous"
     
     var selector: Selector {
         switch self {
@@ -20,18 +21,24 @@ enum SampleType: String {
             return #selector(ViewController.sample_async)
         case .sync:
             return #selector(ViewController.sample_sync)
-        default:
+        case .decode:
             return #selector(ViewController.sample_decode)
+        case .nightWatchAsync:
+            return #selector(ViewController.sample_nw_asynx)
         }
     }
     
-    static let all: [SampleType] = [.async, .sync, .decode]
+    static let all: [SampleType] = [.async, .sync, .decode, .nightWatchAsync]
 }
 
 class ViewController: UITableViewController {
 
     let ghost: Ghost = GhostURLSession.shared
-    let request = GhostRequest("https://meniny.cn/api/v2/about.json")!
+    let url = "https://meniny.cn/api/v2/about.json"
+    lazy var request: GhostRequest = {
+        let r = GhostRequest.init(self.url)
+        return r!
+    }()
     
     let cells: [SampleType] = SampleType.all
     
@@ -111,6 +118,26 @@ class ViewController: UITableViewController {
             } catch {
                 self.display("Decode: Parse error: \(error)")
             }
+        }
+    }
+    
+    @objc func sample_nw_asynx() {
+        let u = URL.init(string: self.url)!
+        
+        do {
+            try NightWatch.async(.GET, url: u, parameters: nil, headers: nil) { (response, error) in
+                do {
+                    if let result: Response = try response?.decode() {
+                        self.display(result.about.joined(separator: "\n------\n"))
+                    } else if let error = error {
+                        self.display("NightWatch Asynchronous: Ghost error: \(error)")
+                    }
+                } catch {
+                    self.display("NightWatch: Parse error: \(error)")
+                }
+            }
+        } catch {
+            self.display("NightWatch: Request error: \(error)")
         }
     }
 

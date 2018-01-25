@@ -8,6 +8,8 @@
 
 import Foundation
 
+public let kGhostSymbol = "👻"
+
 public typealias RequestInterceptor = (GhostRequest.Builder) -> GhostRequest.Builder
 
 public typealias ResponseInterceptor = (GhostResponse.Builder) -> GhostResponse.Builder

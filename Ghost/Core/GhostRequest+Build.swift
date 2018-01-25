@@ -355,6 +355,24 @@ extension GhostRequest {
             }
             return self
         }
+        
+        @discardableResult open func setCustomBody(_ customBody: Data?, contentType ct: GhostContentType) -> Self {
+            guard let customBody = customBody else {
+                return self
+            }
+            body = customBody
+            if contentType == nil {
+                setContentType(ct)
+            }
+            if method == nil {
+                setMethod(.POST)
+            }
+            if contentLength == nil {
+                let length = customBody.count
+                setContentLength(GhostContentLength(length))
+            }
+            return self
+        }
 
         @discardableResult open func setHandleCookies(_ handleCookies: Bool?) -> Self {
             self.handleCookies = handleCookies
