@@ -125,7 +125,9 @@ class ViewController: UITableViewController {
         let u = URL.init(string: self.url)!
         
         do {
-            try GhostHunter.async(.GET, url: u, parameters: nil, headers: nil) { (response, error) in
+            try GhostHunter.async(.GET, url: u, parameters: nil, headers: nil, progress: { (pregress) in
+                print(pregress)
+            }, completion: { (response, error) in
                 do {
                     if let result: Response = try response?.decode() {
                         self.display(result.about.joined(separator: "\n------\n"))
@@ -135,7 +137,7 @@ class ViewController: UITableViewController {
                 } catch {
                     self.display("NightWatch: Parse error: \(error)")
                 }
-            }
+            })
         } catch {
             self.display("NightWatch: Request error: \(error)")
         }

@@ -126,17 +126,17 @@ internal struct Spoil {
     }
     
     @discardableResult
-    internal func async(_ completion: GhostTask.CompletionClosure?) -> Spoil {
+    internal func async(progress: GhostTask.ProgressClosure?, completion: GhostTask.CompletionClosure?) -> Spoil {
         let request = self.build()
-        self.ghost.data(request).async(completion)
+        self.ghost.data(request).progress(progress).async(completion)
         return self
     }
     
     @discardableResult
-    internal func sync(_ completion: GhostTask.CompletionClosure?) throws -> Spoil {
+    internal func sync(progress: GhostTask.ProgressClosure?, completion: GhostTask.CompletionClosure?) throws -> Spoil {
         let request = self.build()
         do {
-            let response = try self.ghost.data(request).sync()
+            let response = try self.ghost.data(request).progress(progress).sync()
             completion?(response, nil)
         } catch {
             throw GhostError.ghostError(from: error)
@@ -145,13 +145,13 @@ internal struct Spoil {
     }
     
     @discardableResult
-    internal func go(_ completion: GhostTask.CompletionClosure?) throws -> Spoil {
+    internal func go(progress: GhostTask.ProgressClosure?, completion: GhostTask.CompletionClosure?) throws -> Spoil {
         switch self.dispatch {
         case .asynchronously:
-            self.async(completion)
+            self.async(progress: progress, completion: completion)
             break
         case .synchronously:
-            try self.sync(completion)
+            try self.sync(progress: progress, completion: completion)
             break
         }
         return self
@@ -178,6 +178,7 @@ public extension GhostHunter {
                              headers: [String: String]?,
                              body: GhostHunterBodyType? = nil,
                              contentType: GhostContentType? = nil,
+                             progress: GhostTask.ProgressClosure?,
                              completion: GhostTask.CompletionClosure?) throws -> GhostHunter {
         return try GhostHunter.request(method, .asynchronously,
                                 url: url,
@@ -185,6 +186,7 @@ public extension GhostHunter {
                                 headers: headers,
                                 body: body,
                                 contentType: contentType,
+                                progress: progress,
                                 completion: completion)
     }
     
@@ -195,6 +197,7 @@ public extension GhostHunter {
                             headers: [String: String]?,
                             body: GhostHunterBodyType? = nil,
                             contentType: GhostContentType? = nil,
+                            progress: GhostTask.ProgressClosure?,
                             completion: GhostTask.CompletionClosure?) throws -> GhostHunter {
         return try GhostHunter.request(method, .synchronously,
                                 url: url,
@@ -202,6 +205,7 @@ public extension GhostHunter {
                                 headers: headers,
                                 body: body,
                                 contentType: contentType,
+                                progress: progress,
                                 completion: completion)
     }
     
@@ -218,6 +222,7 @@ public extension GhostHunter {
                                body: GhostHunterBodyType? = nil,
                                contentType: GhostContentType? = nil,
                                serviceType: GhostRequest.GhostServiceType = NightWatchDefaultServiceType,
+                               progress: GhostTask.ProgressClosure?,
                                completion: GhostTask.CompletionClosure?) throws -> GhostHunter {
         var hunter = GhostHunter.init()
         hunter.spoil = try Spoil.init(method, dispatch,
@@ -231,7 +236,7 @@ public extension GhostHunter {
                                      body: body,
                                      contentType: contentType,
                                      serviceType: serviceType)
-        try hunter.spoil?.go(completion)
+        try hunter.spoil?.go(progress: progress, completion: completion)
         return hunter
     }
 }
@@ -246,6 +251,7 @@ public extension GhostHunter {
                                            to url: URL,
                                            method: GhostRequest.GhostMethod = .POST,
                                            headers: [String: String]?,
+                                           progress: GhostTask.ProgressClosure?,
                                            completion: GhostTask.CompletionClosure?) throws -> GhostHunter {
         let multipartFormData = GhostMultipartFormData.init()
         multipartFormData.append(file, withName: name, fileName: name, mimeType: mimeType)
@@ -261,6 +267,7 @@ public extension GhostHunter {
                                 body: GhostHunterBodyType.multipartFormData(multipartFormData),
                                 contentType: nil,
                                 serviceType: NightWatchDefaultServiceType,
+                                progress: progress,
                                 completion: completion)
     }
     
@@ -269,6 +276,7 @@ public extension GhostHunter {
                               parameters: [String: Any]? = nil,
                               headers: [String: String]? = nil,
                               method: GhostRequest.GhostMethod = .POST,
+                              progress: GhostTask.ProgressClosure?,
                               completion: GhostTask.CompletionClosure?) {
         let session = GhostURLSession.default
         let builder = GhostRequest.init(url).builder()
@@ -276,7 +284,7 @@ public extension GhostHunter {
             .setHeaders(headers)
             .setMethod(method)
         let request = builder.build()
-        session.upload(request, data: data).async(completion)
+        session.upload(request, data: data).progress(progress).async(completion)
     }
     
     public static func upload(file: URL,
@@ -284,6 +292,7 @@ public extension GhostHunter {
                               parameters: [String: Any]? = nil,
                               headers: [String: String]? = nil,
                               method: GhostRequest.GhostMethod = .POST,
+                              progress: GhostTask.ProgressClosure?,
                               completion: GhostTask.CompletionClosure?) {
         let session = GhostURLSession.default
         let builder = GhostRequest.init(url).builder()
@@ -291,7 +300,7 @@ public extension GhostHunter {
             .setHeaders(headers)
             .setMethod(method)
         let request = builder.build()
-        session.upload(request, fileURL: file).async(completion)
+        session.upload(request, fileURL: file).progress(progress).async(completion)
     }
     
     public static func upload(streamFile file: URL,
@@ -299,6 +308,7 @@ public extension GhostHunter {
                               parameters: [String: Any]? = nil,
                               headers: [String: String]? = nil,
                               method: GhostRequest.GhostMethod = .POST,
+                              progress: GhostTask.ProgressClosure?,
                               completion: GhostTask.CompletionClosure?) {
         let session = GhostURLSession.default
         let stream = InputStream.init(fileAtPath: file.path)
@@ -307,18 +317,22 @@ public extension GhostHunter {
             .setHeaders(headers)
             .setMethod(method)
         let request = builder.build()
-        session.upload(request).async(completion)
+        session.upload(request).progress(progress).async(completion)
     }
     
-    public static func download(_ url: URL, completion: GhostTask.CompletionClosure?) {
+    public static func download(_ url: URL,
+                                progress: GhostTask.ProgressClosure?,
+                                completion: GhostTask.CompletionClosure?) {
         let session = GhostURLSession.default
         let request = GhostRequest.init(url)
-        session.download(request).async(completion)
+        session.download(request).progress(progress).async(completion)
     }
     
-    public static func download(resumeData: Data, completion: GhostTask.CompletionClosure?) {
+    public static func download(resumeData: Data,
+                                progress: GhostTask.ProgressClosure?,
+                                completion: GhostTask.CompletionClosure?) {
         let session = GhostURLSession.default
-        session.download(resumeData).async(completion)
+        session.download(resumeData).progress(progress).async(completion)
     }
 }
 

@@ -23,20 +23,20 @@
 ## 🌟 Features
 
 - [x] Chainable Request / Response Methods
-- [x] Asynchronous and synchronous task execution
-- [x] Basic, Bearer and Custom Authorization Handling
+- [x] Asynchronous & synchronous task execution
+- [x] Basic, Bearer & Custom Authorization Handling
 - [x] `URL` / `JSON` / `Property List` Parameter Encoding
 - [x] Upload File / `Data` / `Stream` / `Multipart Form Data`
 - [x] Download File using Request / Resume Data
 - [x] Authentication with `URLCredential`
 - [x] Custom Cache Controls
 - [x] Custom Content Types
-- [x] Upload and Download Progress Closures
+- [x] Upload & Download Progress Closures
 - [x] `cURL` Command Debug Output
-- [x] Request and Response Interceptors
+- [x] Request & Response Interceptors
 - [x] Inference of response object type
 - [x] Network reachability
-- [x] `TLS Certificate` and `Public Key Pinning`
+- [x] `TLS Certificate` & `Public Key Pinning`
 - [x] Retry requests
 - [x] `Codable` protocols compatible (`JSON` / `Property List`)
 - [x] `watchOS` Compatible
@@ -217,7 +217,9 @@ do {
 ```swift
 let url = URL.init(string: "YOUR_URL")!
 do {
-    try GhostHunter.async(.GET, url: url, parameters: ["YOUR_PARAMS": 0], headers: ["YOUR_HEADER": "YES"]]) { (response, error) in
+    try GhostHunter.async(.GET, url: url, parameters: ["name": "elias"], headers: ["Content-Type": "text/json"], progress: { (pregress) in
+        print(pregress)
+    }, completion: { (response, error) in
         do {
             if let result: SomeCodableType = try response?.decode() {
                 print("GhostHunter Asynchronous: \(result)")
