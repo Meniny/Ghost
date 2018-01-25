@@ -1,6 +1,8 @@
 
 import Foundation
 
+// MARK: - Enums
+
 public enum NightWatchDispatch {
     case asynchronously
     case synchronously
@@ -16,11 +18,14 @@ public enum NightWatchBody {
     case multipartFormData(GhostMultipartFormData)
     case custom(Data)
 }
+// MARK: - Default Values
 
 public var NightWatchDefaultTimeout: TimeInterval = 120
 public var NightWatchDefaultCachePolicy: GhostRequest.GhostCachePolicy = .reloadIgnoringLocalCacheData
 public var NightWatchDefaultCacheControls: [GhostCacheControl] = [.maxAge(500)]
 public var NightWatchDefaultServiceType: GhostRequest.GhostServiceType = .default
+
+// MARK: - Night Basic
 
 open class NightWatch {
     
@@ -66,44 +71,48 @@ open class NightWatch {
         self.contentType = contentType
         self.serviceType = serviceType
         
-        self.requestBuiler = try GhostRequest.builder(url)
-        self.requestBuiler.setMethod(method)
-            .setURLParameters(parameters)
-            .setTimeout(timeout)
-            .setHeaders(headers)
-            .setAccept(accept)
-            .setCache(cachePolicy)
-            .setContentType(contentType)
-            .setServiceType(serviceType)
-            .setCacheControls(cacheControls)
-        
-        if let body = body, let contentType = contentType {
-            switch body {
-            case .custom(let data):
-                self.requestBuiler.setCustomBody(data, contentType: contentType)
-                break
-            case .string(let string, let encoding, let lossy):
-                self.requestBuiler.setStringBody(string, encoding: encoding, allowLossyConversion: lossy)
-                break
-            case .stream(let stream):
-                self.requestBuiler.setBodyStream(stream)
-                break
-            case .jsonObject(let json, let options):
-                try self.requestBuiler.setJSONBody(json, options: options)
-                break
-            case .json(let json):
-                try self.requestBuiler.setJSONObject(json as? Encodable)
-                break
-            case .plistObject(let plist, let format, let options):
-                try self.requestBuiler.setPlistBody(plist, format: format, options: options)
-                break
-            case .plist(let plist):
-                try self.requestBuiler.setPlistObject(plist as? Encodable)
-                break
-            case .multipartFormData(let data):
-                try self.requestBuiler.setMultipartFormData(data)
-                break
+        do {
+            self.requestBuiler = try GhostRequest.builder(url)
+            self.requestBuiler.setMethod(method)
+                .setURLParameters(parameters)
+                .setTimeout(timeout)
+                .setHeaders(headers)
+                .setAccept(accept)
+                .setCache(cachePolicy)
+                .setContentType(contentType)
+                .setServiceType(serviceType)
+                .setCacheControls(cacheControls)
+            
+            if let body = body, let contentType = contentType {
+                switch body {
+                case .custom(let data):
+                    self.requestBuiler.setCustomBody(data, contentType: contentType)
+                    break
+                case .string(let string, let encoding, let lossy):
+                    self.requestBuiler.setStringBody(string, encoding: encoding, allowLossyConversion: lossy)
+                    break
+                case .stream(let stream):
+                    self.requestBuiler.setBodyStream(stream)
+                    break
+                case .jsonObject(let json, let options):
+                    try self.requestBuiler.setJSONBody(json, options: options)
+                    break
+                case .json(let json):
+                    try self.requestBuiler.setJSONObject(json as? Encodable)
+                    break
+                case .plistObject(let plist, let format, let options):
+                    try self.requestBuiler.setPlistBody(plist, format: format, options: options)
+                    break
+                case .plist(let plist):
+                    try self.requestBuiler.setPlistObject(plist as? Encodable)
+                    break
+                case .multipartFormData(let data):
+                    try self.requestBuiler.setMultipartFormData(data)
+                    break
+                }
             }
+        } catch {
+            throw GhostError.ghostError(from: error)
         }
     }
     
@@ -117,8 +126,12 @@ open class NightWatch {
     @discardableResult
     open func sync(_ completion: GhostTask.CompletionClosure?) throws -> Self {
         let request = self.requestBuiler.build()
-        let response = try self.ghost.data(request).sync()
-        completion?(response, nil)
+        do {
+            let response = try self.ghost.data(request).sync()
+            completion?(response, nil)
+        } catch {
+            throw GhostError.ghostError(from: error)
+        }
         return self
     }
     
@@ -134,7 +147,33 @@ open class NightWatch {
         }
         return self
     }
+}
+
+// MARK: - Errors
+
+public extension GhostError {
+    public static func ghostError(from error: Error) -> GhostError {
+        return GhostError.ghost(code: error._code,
+                                message: error.localizedDescription,
+                                headers: nil,
+                                object: nil,
+                                underlying: error)
+    }
     
+    public static func parseError(from error: Error) -> GhostError {
+        return GhostError.parse(code: error._code,
+                                message: error.localizedDescription,
+                                object: nil,
+                                underlying: error)
+    }
+}
+
+// MARK: - typealias GhostHunter
+
+public typealias GhostHunter = NightWatch
+
+// MARK: - Class Methods - Requests
+public extension NightWatch {
     @discardableResult
     open class func async(_ method: GhostRequest.GhostMethod,
                           url: URL,
@@ -223,8 +262,50 @@ open class NightWatch {
                              contentType: contentType,
                              serviceType: serviceType).go(completion) as! T
     }
-    
 }
 
-public typealias GhostHunter = NightWatch
+// MARK: - Class Methods - Uploading/Downloading
 
+public extension NightWatch {
+    @discardableResult
+    open class func upload(_ file: URL,
+                           name: String,
+                           mimeType: String,
+                           to url: URL,
+                           method: GhostRequest.GhostMethod = .POST,
+                           headers: [String: String]?,
+                           completion: GhostTask.CompletionClosure?) throws -> Self {
+        return try self._upload(file,
+                                name: name,
+                                mimeType: mimeType,
+                                to: url,
+                                method: method,
+                                headers: headers,
+                                completion: completion)
+    }
+    
+    @discardableResult
+    open class func _upload<T: NightWatch>(_ file: URL,
+                                           name: String,
+                                           mimeType: String,
+                                           to url: URL,
+                                           method: GhostRequest.GhostMethod = .POST,
+                                           headers: [String: String]?,
+                                           completion: GhostTask.CompletionClosure?) throws -> T {
+        let multipartFormBody = GhostMultipartFormData.init()
+        multipartFormBody.append(file, withName: name, fileName: name, mimeType: mimeType)
+        let watch = try self.init(method, .asynchronously,
+                                  url: url,
+                                  parameters: nil,
+                                  headers: headers,
+                                  accept: nil,
+                                  cachePolicy: NightWatchDefaultCachePolicy,
+                                  cacheControls: NightWatchDefaultCacheControls,
+                                  timeout: NightWatchDefaultTimeout,
+                                  body: NightWatchBody.multipartFormData(multipartFormBody),
+                                  contentType: GhostContentType.custom(mimeType),
+                                  serviceType: NightWatchDefaultServiceType)
+        try watch.go(completion)
+        return watch as! T
+    }
+}

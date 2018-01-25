@@ -23,25 +23,25 @@
 ## 🌟 Features
 
 - [x] Chainable Request / Response Methods
-- [x] URL / JSON / Property List Parameter Encoding
-- [x] Upload File / Data / Stream / Multipart Form Data
+- [x] Asynchronous and synchronous task execution
+- [x] Basic, Bearer and Custom Authorization Handling
+- [x] `URL` / `JSON` / `Property List` Parameter Encoding
+- [x] Upload File / `Data` / `Stream` / `Multipart Form Data`
 - [x] Download File using Request / Resume Data
 - [x] Authentication with `URLCredential`
-- [x] Basic, Bearer and Custom Authorization Handling
-- [x] Default and Custom Cache Controls
-- [x] Default and Custom Content Types
-- [x] Upload and Download Progress Closures with Progress
+- [x] Custom Cache Controls
+- [x] Custom Content Types
+- [x] Upload and Download Progress Closures
 - [x] `cURL` Command Debug Output
 - [x] Request and Response Interceptors
-- [x] Asynchronous and synchronous task execution
 - [x] Inference of response object type
 - [x] Network reachability
 - [x] `TLS Certificate` and `Public Key Pinning`
 - [x] Retry requests
 - [x] `Codable` protocols compatible (`JSON` / `Property List`)
-- [x] watchOS Compatible
-- [x] tvOS Compatible
-- [x] macOS Compatible
+- [x] `watchOS` Compatible
+- [x] `tvOS` Compatible
+- [x] `macOS` Compatible
 
 ## 📋 Requirements
 
@@ -60,7 +60,7 @@ use_frameworks!
 pod 'Ghost'
 ```
 
-## 🐒 Usage
+## 🔧 Usage
 
 ### Build a GhostRequest
 

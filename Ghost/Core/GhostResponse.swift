@@ -53,6 +53,14 @@ extension GhostResponse {
 }
 
 extension GhostResponse {
+    
+    public func data() throws -> Data {
+        do {
+            return try GhostTransformer.object(object: responseObject)
+        } catch {
+            throw handle(error)
+        }
+    }
 
     public func object<T>() throws -> T {
         do {
