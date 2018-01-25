@@ -32,6 +32,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Hunter' do |ss|
     ss.dependency 'Ghost/Core'
+    ss.dependency 'Ghost/URLSession'
     ss.source_files  = "Ghost/Hunter/*.{h,swift}"
   end
 end
