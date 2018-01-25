@@ -200,11 +200,16 @@ extension GhostRequest {
             return self
         }
 
-        @discardableResult open func setURLParameters(_ urlParameters: [String: Any]?, resolvingAgainstBaseURL: Bool = false) -> Self {
-            if var components = URLComponents(url: url, resolvingAgainstBaseURL: resolvingAgainstBaseURL) {
-                components.percentEncodedQuery = nil
-                if let urlParameters = urlParameters, urlParameters.count > 0 {
-                    components.percentEncodedQuery = query(urlParameters)
+        @discardableResult open func setURLParameters(_ urlParameters: [String: Any]?, resolvingAgainstBaseURL: Bool = false, removeCurrentPercentEncodedQuery: Bool = false) -> Self {
+            if var components = URLComponents.init(url: url, resolvingAgainstBaseURL: resolvingAgainstBaseURL) {
+                if removeCurrentPercentEncodedQuery {
+                    components.percentEncodedQuery = nil
+                }
+                if let urlParameters = urlParameters {
+                    if !urlParameters.isEmpty {
+                        let queried = query(urlParameters)
+                        components.percentEncodedQuery = queried
+                    }
                 }
                 if let url = components.url {
                     self.url = url

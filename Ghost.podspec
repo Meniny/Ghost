@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Ghost'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Versatile HTTP networking framework written in Swift.'
 
   s.homepage         = 'https://github.com/Meniny/Ghost'
