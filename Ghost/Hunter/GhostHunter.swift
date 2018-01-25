@@ -117,7 +117,7 @@ internal struct Spoil {
                 }
             }
         } catch {
-            throw GhostError.ghostError(from: error)
+            throw error//GhostError.ghostError(from: error)
         }
     }
     
@@ -140,7 +140,7 @@ internal struct Spoil {
             let response = try self.ghost.data(request).progress(progress).sync()
             completion?(response, nil)
         } catch {
-            throw GhostError.ghostError(from: error)
+            throw error//GhostError.ghostError(from: error)
         }
         return self
     }
@@ -200,14 +200,20 @@ public extension GhostHunter {
                             contentType: GhostContentType? = nil,
                             progress: GhostTask.ProgressClosure?,
                             completion: GhostTask.CompletionClosure?) throws -> GhostHunter {
-        return try GhostHunter.request(method, .synchronously,
-                                url: url,
-                                parameters: parameters,
-                                headers: headers,
-                                body: body,
-                                contentType: contentType,
-                                progress: progress,
-                                completion: completion)
+        do {
+            let hunter = try GhostHunter.request(method, .synchronously,
+                                                 url: url,
+                                                 parameters: parameters,
+                                                 headers: headers,
+                                                 body: body,
+                                                 contentType: contentType,
+                                                 progress: progress,
+                                                 completion: completion)
+        } catch {
+            throw error
+        }
+        
+        throw GhostError.unknown
     }
     
     @discardableResult
@@ -226,18 +232,22 @@ public extension GhostHunter {
                                progress: GhostTask.ProgressClosure?,
                                completion: GhostTask.CompletionClosure?) throws -> GhostHunter {
         var hunter = GhostHunter.init()
-        hunter.spoil = try Spoil.init(method, dispatch,
-                                     url: url,
-                                     parameters: parameters,
-                                     headers: headers,
-                                     accept: accept,
-                                     cachePolicy: cachePolicy,
-                                     cacheControls: cacheControls,
-                                     timeout: timeout,
-                                     body: body,
-                                     contentType: contentType,
-                                     serviceType: serviceType)
-        try hunter.spoil?.go(progress: progress, completion: completion)
+        do {
+            hunter.spoil = try Spoil.init(method, dispatch,
+                                          url: url,
+                                          parameters: parameters,
+                                          headers: headers,
+                                          accept: accept,
+                                          cachePolicy: cachePolicy,
+                                          cacheControls: cacheControls,
+                                          timeout: timeout,
+                                          body: body,
+                                          contentType: contentType,
+                                          serviceType: serviceType)
+            try hunter.spoil?.go(progress: progress, completion: completion)
+        } catch {
+            throw error
+        }
         return hunter
     }
 }
@@ -256,20 +266,26 @@ public extension GhostHunter {
                                            completion: GhostTask.CompletionClosure?) throws -> GhostHunter {
         let multipartFormData = GhostMultipartFormData.init()
         multipartFormData.append(file, withName: name, fileName: name, mimeType: mimeType)
-        return try GhostHunter.request(method,
-                                .asynchronously,
-                                url: url,
-                                parameters: nil,
-                                headers: headers,
-                                accept: nil,
-                                cachePolicy: NightWatchDefaultCachePolicy,
-                                cacheControls: NightWatchDefaultCacheControls,
-                                timeout: NightWatchDefaultTimeout,
-                                body: GhostHunterBodyType.multipartFormData(multipartFormData),
-                                contentType: nil,
-                                serviceType: NightWatchDefaultServiceType,
-                                progress: progress,
-                                completion: completion)
+        do {
+            let hunter = try GhostHunter.request(method,
+                                                 .asynchronously,
+                                                 url: url,
+                                                 parameters: nil,
+                                                 headers: headers,
+                                                 accept: nil,
+                                                 cachePolicy: NightWatchDefaultCachePolicy,
+                                                 cacheControls: NightWatchDefaultCacheControls,
+                                                 timeout: NightWatchDefaultTimeout,
+                                                 body: GhostHunterBodyType.multipartFormData(multipartFormData),
+                                                 contentType: nil,
+                                                 serviceType: NightWatchDefaultServiceType,
+                                                 progress: progress,
+                                                 completion: completion)
+            return hunter
+        } catch {
+            throw error
+        }
+        throw GhostError.unknown
     }
     
     public static func upload(data: Data,

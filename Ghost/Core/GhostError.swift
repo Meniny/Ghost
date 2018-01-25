@@ -134,4 +134,8 @@ public extension GhostError {
                                 object: nil,
                                 underlying: error)
     }
+    
+    public static var unknown: GhostError {
+        return GhostError.ghost(code: 0, message: "Unknown", headers: nil, object: nil, underlying: nil)
+    }
 }
