@@ -1,0 +1,706 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F55018940092C92AC65DA688627CD01 /* ArnoldContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C56FA43D86282AA1DB5A8F1C14ABB /* ArnoldContentType.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		17F4E72463260859E48C3D5689514BE4 /* ArnoldCacheControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EEFCD77F6848E5162F31A5D01A527 /* ArnoldCacheControl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		192F37260BAE9720A7D8E830E033F95E /* ArnoldAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B941BDAD14F0FD60A700FA2D9F4CD9 /* ArnoldAuthorization.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		22989EA0C632D4BEBCA4066ED9FE30DE /* ArnoldResponse+Cached​URLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251CFB68BFC7050D0D82C1BFC3E6DA9 /* ArnoldResponse+Cached​URLResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		329E07979F9E3315A19046241452D76F /* ArnoldTaskMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5950AF8B51AE25B0B69AEDF231769E /* ArnoldTaskMetrics.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3FE1F06D874AC6C78CE280E3BD80FDD1 /* ArnoldReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06068D9512EB67291ED1B188FA9C8F67 /* ArnoldReachability.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3FFEE665BDA0E9CC43C4DC6ABBEAE4C6 /* ArnoldResponse+HTTPURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157E094540516F14CD71EE508DAB28B /* ArnoldResponse+HTTPURLResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		431054D445A811110A8713CE8D75585A /* ArnoldServerTrust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820A1C84D6848D35CE030BA5BA84D959 /* ArnoldServerTrust.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5534F9A27EFB000F0753A68D031F5177 /* ArnoldResponse+URLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E994A58B6A1A2EB0CE931C8B576B13 /* ArnoldResponse+URLResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5628B6B60FC7345A4CC6D912DCBE24AC /* ArnoldTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99AC7197355E21170DD269BB2BEE935 /* ArnoldTransformer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6176C8868C78C045BEE2AE57D5450269 /* ArnoldError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A53C6118D0BF86ACD4FB1FC1612D2 /* ArnoldError.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		69BE994E12D254935ED6C3DD52FF4FDA /* ArnoldRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04913FAD4B5CFF57975A449B5999B9BF /* ArnoldRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		70A3E0DB58B54D2519D6FBDAA83D68D1 /* Ghost-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F240BD6399C9BCE74F845E0A11236D33 /* Ghost-dummy.m */; };
+		78A61D83F1019FA5A7936D765BEA1D94 /* Arnold.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FACC3E3F2393B7C58C7262484993B4 /* Arnold.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CD1901359220922C7B418A9BD41CE34 /* ArnoldTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF29DB781DC9378207B24AAC156E4C7 /* ArnoldTask.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7D27AAB0983B0B840C7C62FBCDE75222 /* Pods-Sample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 630DD76D417453483F37DBAE838D5518 /* Pods-Sample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BBEE78067DBCC7D4C507D8E2A939C29 /* NetURLSession+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDEDC0272FDE4D6AE8FB74C33CF4D9 /* NetURLSession+Data.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8CD59FE266AC9692ABFAADFF2C4263B1 /* NetTask+URLSessionTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6883669F9DE90D619DD2BC5DC0CAC9A2 /* NetTask+URLSessionTask.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		90C4805EBC3E385C3B960D50EF566856 /* ArnoldResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2E1876631C4A5C7810AA35F634D8A3 /* ArnoldResponse.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		93390EC8C48E791C99122A04D135A4D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		94882449A01DA2352355F131C3C741ED /* URLSessionConfiguration+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB11C8DE0977FC25C7A147E1057DC65F /* URLSessionConfiguration+Build.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9F4F453A391CA2ADBC8C8E4C51B23261 /* NetURLSession+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7250ED5EDA9E5A790ED3552776ABA15 /* NetURLSession+Download.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A56EFC6B023379A87584639BC244F49E /* ArnoldMultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5D62E69F4A0A306214BAF13A6003B8 /* ArnoldMultipartFormData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A62975BA6841B5D09C3FE83CDC251DAE /* NetURLSession+Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B313D4284D3A72E2346D1B551FFAC3 /* NetURLSession+Upload.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AE836338DB114D91D5016AE081C6730C /* NetURLSession+Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84174EEF9C316E7C5FDB314E1DC6411 /* NetURLSession+Stream.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BAE1091B321B1F50721E187A1D7D20C2 /* NetURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A713633BE3EBD4B7326FCEDE9B20D7 /* NetURLSessionDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BBBE946474207F65EF552B24A37E92EF /* ArnoldRequest+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E9BB54E969321E2DD29054EBA94D71 /* ArnoldRequest+Build.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BDB33511FFA4AF0725DD78ADD15E336C /* NetURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747910A30DCE7F96AF3BADD329280008 /* NetURLSession.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C9A0E2DD13866D8143158BED450CAB22 /* ArnoldResponse+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE252B4DA7B369DDC5512D0B3E90404 /* ArnoldResponse+Build.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CB18C1A87A08A8DBF665C903A5929B53 /* Pods-Sample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF50723EE695E440CDA214119EF2C70 /* Pods-Sample-dummy.m */; };
+		D3C8FFD90D4A0AAA84665158958F838E /* Ghost-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F0B19F37985CAA14B6D29DD33EC4684 /* Ghost-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6604BAB1681B6A157191EAA6AECDF57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		E12C6D0F01C31858501CB9FE9E281E31 /* ArnoldTaskMetrics+URLSessionTaskMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431B808924C476CFFC2886D0E74A245A /* ArnoldTaskMetrics+URLSessionTaskMetrics.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F2315CB6C60DB8AAF2DE3DEAA05FA56D /* ArnoldRequest+URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0238A4C9B20FFA3F0CA7ACB01CA75F /* ArnoldRequest+URLRequest.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F9AF18CE023503E31D0CFA604428FC18 /* Arnold.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4CB0A3722F7BBA26D4EC50216DFB2EE /* Arnold.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FE2E66505643F81D8601361AEFBEA7BE /* NetURLSessionTaskObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667F631BA23B4B40CAB643B5231389E5 /* NetURLSessionTaskObserver.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BC362E96CE0BD28EE700FDC070788254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9751C3AD1A3CFE522BAB66EB23514E6E;
+			remoteInfo = Ghost;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0251CFB68BFC7050D0D82C1BFC3E6DA9 /* ArnoldResponse+Cached​URLResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ArnoldResponse+Cached​URLResponse.swift"; path = "Ghost/Core/ArnoldResponse+Cached​URLResponse.swift"; sourceTree = "<group>"; };
+		04913FAD4B5CFF57975A449B5999B9BF /* ArnoldRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldRequest.swift; path = Ghost/Core/ArnoldRequest.swift; sourceTree = "<group>"; };
+		04B313D4284D3A72E2346D1B551FFAC3 /* NetURLSession+Upload.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NetURLSession+Upload.swift"; path = "Ghost/URLSession/NetURLSession+Upload.swift"; sourceTree = "<group>"; };
+		06068D9512EB67291ED1B188FA9C8F67 /* ArnoldReachability.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldReachability.swift; path = Ghost/Core/ArnoldReachability.swift; sourceTree = "<group>"; };
+		0B0238A4C9B20FFA3F0CA7ACB01CA75F /* ArnoldRequest+URLRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ArnoldRequest+URLRequest.swift"; path = "Ghost/Core/ArnoldRequest+URLRequest.swift"; sourceTree = "<group>"; };
+		0F13031925EFD7DA3716CC7C23FE7662 /* Ghost.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Ghost.xcconfig; sourceTree = "<group>"; };
+		1157E094540516F14CD71EE508DAB28B /* ArnoldResponse+HTTPURLResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ArnoldResponse+HTTPURLResponse.swift"; path = "Ghost/Core/ArnoldResponse+HTTPURLResponse.swift"; sourceTree = "<group>"; };
+		161FD1626938094EEC6BF57530EDB6DA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FDF78216A41DB691C5960FEE69EB9FD /* Pods-Sample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sample-resources.sh"; sourceTree = "<group>"; };
+		300EEFCD77F6848E5162F31A5D01A527 /* ArnoldCacheControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldCacheControl.swift; path = Ghost/Core/ArnoldCacheControl.swift; sourceTree = "<group>"; };
+		35A713633BE3EBD4B7326FCEDE9B20D7 /* NetURLSessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetURLSessionDelegate.swift; path = Ghost/URLSession/NetURLSessionDelegate.swift; sourceTree = "<group>"; };
+		36B941BDAD14F0FD60A700FA2D9F4CD9 /* ArnoldAuthorization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldAuthorization.swift; path = Ghost/Core/ArnoldAuthorization.swift; sourceTree = "<group>"; };
+		39E994A58B6A1A2EB0CE931C8B576B13 /* ArnoldResponse+URLResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ArnoldResponse+URLResponse.swift"; path = "Ghost/Core/ArnoldResponse+URLResponse.swift"; sourceTree = "<group>"; };
+		3AE375A74D27FC41E7BB6C006DFC76A6 /* Pods-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sample.debug.xcconfig"; sourceTree = "<group>"; };
+		3D5D62E69F4A0A306214BAF13A6003B8 /* ArnoldMultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldMultipartFormData.swift; path = Ghost/Core/ArnoldMultipartFormData.swift; sourceTree = "<group>"; };
+		3F5950AF8B51AE25B0B69AEDF231769E /* ArnoldTaskMetrics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldTaskMetrics.swift; path = Ghost/Core/ArnoldTaskMetrics.swift; sourceTree = "<group>"; };
+		431B808924C476CFFC2886D0E74A245A /* ArnoldTaskMetrics+URLSessionTaskMetrics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ArnoldTaskMetrics+URLSessionTaskMetrics.swift"; path = "Ghost/Core/ArnoldTaskMetrics+URLSessionTaskMetrics.swift"; sourceTree = "<group>"; };
+		4AF50723EE695E440CDA214119EF2C70 /* Pods-Sample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sample-dummy.m"; sourceTree = "<group>"; };
+		4F0B19F37985CAA14B6D29DD33EC4684 /* Ghost-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Ghost-umbrella.h"; sourceTree = "<group>"; };
+		522A53C6118D0BF86ACD4FB1FC1612D2 /* ArnoldError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldError.swift; path = Ghost/Core/ArnoldError.swift; sourceTree = "<group>"; };
+		53A0F5242362BA54295FB19C9DE7EE75 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		5E65E47343CEFB18066530FAB47A2B6F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6208D2105A7C6DB3877BFD0CDADD6D72 /* LICENSE.md */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.md; sourceTree = "<group>"; };
+		630DD76D417453483F37DBAE838D5518 /* Pods-Sample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sample-umbrella.h"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		667F631BA23B4B40CAB643B5231389E5 /* NetURLSessionTaskObserver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetURLSessionTaskObserver.swift; path = Ghost/URLSession/NetURLSessionTaskObserver.swift; sourceTree = "<group>"; };
+		6883669F9DE90D619DD2BC5DC0CAC9A2 /* NetTask+URLSessionTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NetTask+URLSessionTask.swift"; path = "Ghost/URLSession/NetTask+URLSessionTask.swift"; sourceTree = "<group>"; };
+		6D65DC53E876D33B73CCFEE44C379EE1 /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
+		6DF29DB781DC9378207B24AAC156E4C7 /* ArnoldTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldTask.swift; path = Ghost/Core/ArnoldTask.swift; sourceTree = "<group>"; };
+		735E5204C40E887244F2B75BCCDF2572 /* Pods-Sample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Sample.modulemap"; sourceTree = "<group>"; };
+		747910A30DCE7F96AF3BADD329280008 /* NetURLSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetURLSession.swift; path = Ghost/URLSession/NetURLSession.swift; sourceTree = "<group>"; };
+		7E2E1876631C4A5C7810AA35F634D8A3 /* ArnoldResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldResponse.swift; path = Ghost/Core/ArnoldResponse.swift; sourceTree = "<group>"; };
+		820A1C84D6848D35CE030BA5BA84D959 /* ArnoldServerTrust.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldServerTrust.swift; path = Ghost/Core/ArnoldServerTrust.swift; sourceTree = "<group>"; };
+		8EE252B4DA7B369DDC5512D0B3E90404 /* ArnoldResponse+Build.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ArnoldResponse+Build.swift"; path = "Ghost/Core/ArnoldResponse+Build.swift"; sourceTree = "<group>"; };
+		905875D251500623E56C0BC5F451D7B2 /* Ghost.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Ghost.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93BDEDC0272FDE4D6AE8FB74C33CF4D9 /* NetURLSession+Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NetURLSession+Data.swift"; path = "Ghost/URLSession/NetURLSession+Data.swift"; sourceTree = "<group>"; };
+		9C896AB03AD02637A2108FF27D207683 /* Pods-Sample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sample-frameworks.sh"; sourceTree = "<group>"; };
+		9EB968B09D66D0F9712DAF186EED223E /* Ghost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Ghost.framework; path = Ghost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21D9B3C2775E7C503E601A5737980FB /* Pods-Sample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A4F67C9E66E8D9E97F11042B162517EB /* Pods-Sample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sample-acknowledgements.plist"; sourceTree = "<group>"; };
+		A68829CA5F542D690A2C3550CF579D74 /* Ghost-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Ghost-prefix.pch"; sourceTree = "<group>"; };
+		A84174EEF9C316E7C5FDB314E1DC6411 /* NetURLSession+Stream.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NetURLSession+Stream.swift"; path = "Ghost/URLSession/NetURLSession+Stream.swift"; sourceTree = "<group>"; };
+		AA9C56FA43D86282AA1DB5A8F1C14ABB /* ArnoldContentType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldContentType.swift; path = Ghost/Core/ArnoldContentType.swift; sourceTree = "<group>"; };
+		AB11C8DE0977FC25C7A147E1057DC65F /* URLSessionConfiguration+Build.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URLSessionConfiguration+Build.swift"; path = "Ghost/Core/URLSessionConfiguration+Build.swift"; sourceTree = "<group>"; };
+		B5DC57CE361A7D2DF8E53447EAF3AEF9 /* Ghost.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = Ghost.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B5FACC3E3F2393B7C58C7262484993B4 /* Arnold.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Arnold.h; path = Ghost/Core/Arnold.h; sourceTree = "<group>"; };
+		C6E9BB54E969321E2DD29054EBA94D71 /* ArnoldRequest+Build.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ArnoldRequest+Build.swift"; path = "Ghost/Core/ArnoldRequest+Build.swift"; sourceTree = "<group>"; };
+		C7250ED5EDA9E5A790ED3552776ABA15 /* NetURLSession+Download.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NetURLSession+Download.swift"; path = "Ghost/URLSession/NetURLSession+Download.swift"; sourceTree = "<group>"; };
+		D516AD7690DDF9684DA1C7BE0F24B368 /* Pods_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Sample.framework; path = "Pods-Sample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E99AC7197355E21170DD269BB2BEE935 /* ArnoldTransformer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ArnoldTransformer.swift; path = Ghost/Core/ArnoldTransformer.swift; sourceTree = "<group>"; };
+		F240BD6399C9BCE74F845E0A11236D33 /* Ghost-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Ghost-dummy.m"; sourceTree = "<group>"; };
+		F4CB0A3722F7BBA26D4EC50216DFB2EE /* Arnold.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Arnold.swift; path = Ghost/Core/Arnold.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37035EA32C3465A863FAF53B1EB36101 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6604BAB1681B6A157191EAA6AECDF57 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E17A52A7D2547F820CBA7E095665AA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93390EC8C48E791C99122A04D135A4D1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3EAF46E078FA32C699033BDA07BA8D6A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				905875D251500623E56C0BC5F451D7B2 /* Ghost.modulemap */,
+				0F13031925EFD7DA3716CC7C23FE7662 /* Ghost.xcconfig */,
+				F240BD6399C9BCE74F845E0A11236D33 /* Ghost-dummy.m */,
+				A68829CA5F542D690A2C3550CF579D74 /* Ghost-prefix.pch */,
+				4F0B19F37985CAA14B6D29DD33EC4684 /* Ghost-umbrella.h */,
+				5E65E47343CEFB18066530FAB47A2B6F /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Sample/Pods/Target Support Files/Ghost";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				98B7B4CE56C8927A4ACA3DB378553F2A /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				A3412798126DF8610A95E4682FA6D5A7 /* Products */,
+				A8614ADDDA2C845A05B4D5D16AB12C48 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		903C4751963F25BFD252A1A0C267F9E7 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				B5DC57CE361A7D2DF8E53447EAF3AEF9 /* Ghost.podspec */,
+				6208D2105A7C6DB3877BFD0CDADD6D72 /* LICENSE.md */,
+				53A0F5242362BA54295FB19C9DE7EE75 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		98B7B4CE56C8927A4ACA3DB378553F2A /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1243D85722FEC56BC6153F80CF0FE77 /* Ghost */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		A1243D85722FEC56BC6153F80CF0FE77 /* Ghost */ = {
+			isa = PBXGroup;
+			children = (
+				ACCF139D670A4A3ECC88422791E9EE2E /* Core */,
+				903C4751963F25BFD252A1A0C267F9E7 /* Pod */,
+				3EAF46E078FA32C699033BDA07BA8D6A /* Support Files */,
+				B4DCE06C7B8DFC1E5844E88EAE9249CC /* URLSession */,
+			);
+			name = Ghost;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		A3412798126DF8610A95E4682FA6D5A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EB968B09D66D0F9712DAF186EED223E /* Ghost.framework */,
+				D516AD7690DDF9684DA1C7BE0F24B368 /* Pods_Sample.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A8614ADDDA2C845A05B4D5D16AB12C48 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF5639CAB18577B4EDAE07E0E34E188C /* Pods-Sample */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		ACCF139D670A4A3ECC88422791E9EE2E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B5FACC3E3F2393B7C58C7262484993B4 /* Arnold.h */,
+				F4CB0A3722F7BBA26D4EC50216DFB2EE /* Arnold.swift */,
+				36B941BDAD14F0FD60A700FA2D9F4CD9 /* ArnoldAuthorization.swift */,
+				300EEFCD77F6848E5162F31A5D01A527 /* ArnoldCacheControl.swift */,
+				AA9C56FA43D86282AA1DB5A8F1C14ABB /* ArnoldContentType.swift */,
+				522A53C6118D0BF86ACD4FB1FC1612D2 /* ArnoldError.swift */,
+				3D5D62E69F4A0A306214BAF13A6003B8 /* ArnoldMultipartFormData.swift */,
+				06068D9512EB67291ED1B188FA9C8F67 /* ArnoldReachability.swift */,
+				04913FAD4B5CFF57975A449B5999B9BF /* ArnoldRequest.swift */,
+				C6E9BB54E969321E2DD29054EBA94D71 /* ArnoldRequest+Build.swift */,
+				0B0238A4C9B20FFA3F0CA7ACB01CA75F /* ArnoldRequest+URLRequest.swift */,
+				7E2E1876631C4A5C7810AA35F634D8A3 /* ArnoldResponse.swift */,
+				8EE252B4DA7B369DDC5512D0B3E90404 /* ArnoldResponse+Build.swift */,
+				0251CFB68BFC7050D0D82C1BFC3E6DA9 /* ArnoldResponse+Cached​URLResponse.swift */,
+				1157E094540516F14CD71EE508DAB28B /* ArnoldResponse+HTTPURLResponse.swift */,
+				39E994A58B6A1A2EB0CE931C8B576B13 /* ArnoldResponse+URLResponse.swift */,
+				820A1C84D6848D35CE030BA5BA84D959 /* ArnoldServerTrust.swift */,
+				6DF29DB781DC9378207B24AAC156E4C7 /* ArnoldTask.swift */,
+				3F5950AF8B51AE25B0B69AEDF231769E /* ArnoldTaskMetrics.swift */,
+				431B808924C476CFFC2886D0E74A245A /* ArnoldTaskMetrics+URLSessionTaskMetrics.swift */,
+				E99AC7197355E21170DD269BB2BEE935 /* ArnoldTransformer.swift */,
+				AB11C8DE0977FC25C7A147E1057DC65F /* URLSessionConfiguration+Build.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		B4DCE06C7B8DFC1E5844E88EAE9249CC /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				6883669F9DE90D619DD2BC5DC0CAC9A2 /* NetTask+URLSessionTask.swift */,
+				747910A30DCE7F96AF3BADD329280008 /* NetURLSession.swift */,
+				93BDEDC0272FDE4D6AE8FB74C33CF4D9 /* NetURLSession+Data.swift */,
+				C7250ED5EDA9E5A790ED3552776ABA15 /* NetURLSession+Download.swift */,
+				A84174EEF9C316E7C5FDB314E1DC6411 /* NetURLSession+Stream.swift */,
+				04B313D4284D3A72E2346D1B551FFAC3 /* NetURLSession+Upload.swift */,
+				35A713633BE3EBD4B7326FCEDE9B20D7 /* NetURLSessionDelegate.swift */,
+				667F631BA23B4B40CAB643B5231389E5 /* NetURLSessionTaskObserver.swift */,
+			);
+			name = URLSession;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF5639CAB18577B4EDAE07E0E34E188C /* Pods-Sample */ = {
+			isa = PBXGroup;
+			children = (
+				161FD1626938094EEC6BF57530EDB6DA /* Info.plist */,
+				735E5204C40E887244F2B75BCCDF2572 /* Pods-Sample.modulemap */,
+				A21D9B3C2775E7C503E601A5737980FB /* Pods-Sample-acknowledgements.markdown */,
+				A4F67C9E66E8D9E97F11042B162517EB /* Pods-Sample-acknowledgements.plist */,
+				4AF50723EE695E440CDA214119EF2C70 /* Pods-Sample-dummy.m */,
+				9C896AB03AD02637A2108FF27D207683 /* Pods-Sample-frameworks.sh */,
+				2FDF78216A41DB691C5960FEE69EB9FD /* Pods-Sample-resources.sh */,
+				630DD76D417453483F37DBAE838D5518 /* Pods-Sample-umbrella.h */,
+				3AE375A74D27FC41E7BB6C006DFC76A6 /* Pods-Sample.debug.xcconfig */,
+				6D65DC53E876D33B73CCFEE44C379EE1 /* Pods-Sample.release.xcconfig */,
+			);
+			name = "Pods-Sample";
+			path = "Target Support Files/Pods-Sample";
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		016FC715BE77A07B04BAA23EBD1CE8B0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D27AAB0983B0B840C7C62FBCDE75222 /* Pods-Sample-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		120AFFF35E271DCE267FF34FA8D4B609 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78A61D83F1019FA5A7936D765BEA1D94 /* Arnold.h in Headers */,
+				D3C8FFD90D4A0AAA84665158958F838E /* Ghost-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		54D7057257B0F416EB6FE21E3ED5971D /* Pods-Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FAB6D8AD078E702D0DC511BCB27B4E6 /* Build configuration list for PBXNativeTarget "Pods-Sample" */;
+			buildPhases = (
+				F0E940FC2D13CA775CE9936918A35543 /* Sources */,
+				9E17A52A7D2547F820CBA7E095665AA4 /* Frameworks */,
+				016FC715BE77A07B04BAA23EBD1CE8B0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83351C136DC739E008DB84750B90E1CE /* PBXTargetDependency */,
+			);
+			name = "Pods-Sample";
+			productName = "Pods-Sample";
+			productReference = D516AD7690DDF9684DA1C7BE0F24B368 /* Pods_Sample.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9751C3AD1A3CFE522BAB66EB23514E6E /* Ghost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AB3DB037EA1AD85E35F3573D23B988D /* Build configuration list for PBXNativeTarget "Ghost" */;
+			buildPhases = (
+				D3FBC845F0A54691E7EE38E07876888F /* Sources */,
+				37035EA32C3465A863FAF53B1EB36101 /* Frameworks */,
+				120AFFF35E271DCE267FF34FA8D4B609 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Ghost;
+			productName = Ghost;
+			productReference = 9EB968B09D66D0F9712DAF186EED223E /* Ghost.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = A3412798126DF8610A95E4682FA6D5A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9751C3AD1A3CFE522BAB66EB23514E6E /* Ghost */,
+				54D7057257B0F416EB6FE21E3ED5971D /* Pods-Sample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D3FBC845F0A54691E7EE38E07876888F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9AF18CE023503E31D0CFA604428FC18 /* Arnold.swift in Sources */,
+				192F37260BAE9720A7D8E830E033F95E /* ArnoldAuthorization.swift in Sources */,
+				17F4E72463260859E48C3D5689514BE4 /* ArnoldCacheControl.swift in Sources */,
+				0F55018940092C92AC65DA688627CD01 /* ArnoldContentType.swift in Sources */,
+				6176C8868C78C045BEE2AE57D5450269 /* ArnoldError.swift in Sources */,
+				A56EFC6B023379A87584639BC244F49E /* ArnoldMultipartFormData.swift in Sources */,
+				3FE1F06D874AC6C78CE280E3BD80FDD1 /* ArnoldReachability.swift in Sources */,
+				BBBE946474207F65EF552B24A37E92EF /* ArnoldRequest+Build.swift in Sources */,
+				F2315CB6C60DB8AAF2DE3DEAA05FA56D /* ArnoldRequest+URLRequest.swift in Sources */,
+				69BE994E12D254935ED6C3DD52FF4FDA /* ArnoldRequest.swift in Sources */,
+				C9A0E2DD13866D8143158BED450CAB22 /* ArnoldResponse+Build.swift in Sources */,
+				22989EA0C632D4BEBCA4066ED9FE30DE /* ArnoldResponse+Cached​URLResponse.swift in Sources */,
+				3FFEE665BDA0E9CC43C4DC6ABBEAE4C6 /* ArnoldResponse+HTTPURLResponse.swift in Sources */,
+				5534F9A27EFB000F0753A68D031F5177 /* ArnoldResponse+URLResponse.swift in Sources */,
+				90C4805EBC3E385C3B960D50EF566856 /* ArnoldResponse.swift in Sources */,
+				431054D445A811110A8713CE8D75585A /* ArnoldServerTrust.swift in Sources */,
+				7CD1901359220922C7B418A9BD41CE34 /* ArnoldTask.swift in Sources */,
+				E12C6D0F01C31858501CB9FE9E281E31 /* ArnoldTaskMetrics+URLSessionTaskMetrics.swift in Sources */,
+				329E07979F9E3315A19046241452D76F /* ArnoldTaskMetrics.swift in Sources */,
+				5628B6B60FC7345A4CC6D912DCBE24AC /* ArnoldTransformer.swift in Sources */,
+				70A3E0DB58B54D2519D6FBDAA83D68D1 /* Ghost-dummy.m in Sources */,
+				8CD59FE266AC9692ABFAADFF2C4263B1 /* NetTask+URLSessionTask.swift in Sources */,
+				8BBEE78067DBCC7D4C507D8E2A939C29 /* NetURLSession+Data.swift in Sources */,
+				9F4F453A391CA2ADBC8C8E4C51B23261 /* NetURLSession+Download.swift in Sources */,
+				AE836338DB114D91D5016AE081C6730C /* NetURLSession+Stream.swift in Sources */,
+				A62975BA6841B5D09C3FE83CDC251DAE /* NetURLSession+Upload.swift in Sources */,
+				BDB33511FFA4AF0725DD78ADD15E336C /* NetURLSession.swift in Sources */,
+				BAE1091B321B1F50721E187A1D7D20C2 /* NetURLSessionDelegate.swift in Sources */,
+				FE2E66505643F81D8601361AEFBEA7BE /* NetURLSessionTaskObserver.swift in Sources */,
+				94882449A01DA2352355F131C3C741ED /* URLSessionConfiguration+Build.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0E940FC2D13CA775CE9936918A35543 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB18C1A87A08A8DBF665C903A5929B53 /* Pods-Sample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83351C136DC739E008DB84750B90E1CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Ghost;
+			target = 9751C3AD1A3CFE522BAB66EB23514E6E /* Ghost */;
+			targetProxy = BC362E96CE0BD28EE700FDC070788254 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		008F4DEB25765A496F47F41C4538ADBB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D65DC53E876D33B73CCFEE44C379EE1 /* Pods-Sample.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Sample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sample/Pods-Sample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Sample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4C85560F01EEDE4B0778B401923F747D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AE375A74D27FC41E7BB6C006DFC76A6 /* Pods-Sample.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Sample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sample/Pods-Sample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Sample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6C29802C02A6669B832AFE38F0C899CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F13031925EFD7DA3716CC7C23FE7662 /* Ghost.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Ghost/Ghost-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Ghost/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Ghost/Ghost.modulemap";
+				PRODUCT_NAME = Ghost;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9586A0F25E6B38E5613B29A89A0F6CA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F13031925EFD7DA3716CC7C23FE7662 /* Ghost.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Ghost/Ghost-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Ghost/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Ghost/Ghost.modulemap";
+				PRODUCT_NAME = Ghost;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0FAB6D8AD078E702D0DC511BCB27B4E6 /* Build configuration list for PBXNativeTarget "Pods-Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C85560F01EEDE4B0778B401923F747D /* Debug */,
+				008F4DEB25765A496F47F41C4538ADBB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */,
+				B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AB3DB037EA1AD85E35F3573D23B988D /* Build configuration list for PBXNativeTarget "Ghost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9586A0F25E6B38E5613B29A89A0F6CA2 /* Debug */,
+				6C29802C02A6669B832AFE38F0C899CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
