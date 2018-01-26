@@ -98,7 +98,7 @@ class ViewController: UITableViewController {
     func async(url u: String) {
         if let r = GhostRequest.init(u) {
             // Asynchronous
-            ghost.data(request).async { (response, error) in
+            ghost.data(r).async { (response, error) in
                 do {
                     if let object: [AnyHashable: Any] = try response?.object() {
                         self.display("Asynchronous: \(object)")
