@@ -77,19 +77,39 @@ class ViewController: UITableViewController {
     
     @objc
     func sample_async() {
-        // Asynchronous
-        ghost.data(request).async { (response, error) in
-            do {
-                if let object: [AnyHashable: Any] = try response?.object() {
-                    self.display("Asynchronous: \(object)")
-                } else if let error = error {
-                    self.display("Asynchronous: Ghost error: \(error)")
+        
+        let controller = UIAlertController.init(title: "URL", message: "Enter the url", preferredStyle: .alert)
+        controller.addTextField { (text) in
+            text.clearButtonMode = .whileEditing
+            text.placeholder = "URL"
+            text.text = self.url
+        }
+        controller.addAction(UIAlertAction.init(title: "Go", style: .default, handler: { (_) in
+            if let u = controller.textFields?.first?.text {
+                if !u.isEmpty {
+                    self.async(url: u)
                 }
-            } catch {
-                self.display("Asynchronous: Parse error: \(error.localizedDescription)")
+            }
+        }))
+        controller.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    func async(url u: String) {
+        if let r = GhostRequest.init(u) {
+            // Asynchronous
+            ghost.data(request).async { (response, error) in
+                do {
+                    if let object: [AnyHashable: Any] = try response?.object() {
+                        self.display("Asynchronous: \(object)")
+                    } else if let error = error {
+                        self.display("Asynchronous: Ghost error: \(error)")
+                    }
+                } catch {
+                    self.display("Asynchronous: Parse error: \(error.localizedDescription)")
+                }
             }
         }
-        
     }
     
     @objc
