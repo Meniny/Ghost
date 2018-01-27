@@ -11,6 +11,7 @@ import Ghost
 
 enum SampleType: String {
     case async  = "Asynchronous"
+    case async_portfolio  = "Asynchronous Portfolio"
     case sync   = "Synchronous"
     case decode = "Decode"
     case hunterAsync = "GhostHunter-Asynchronous"
@@ -19,6 +20,8 @@ enum SampleType: String {
         switch self {
         case .async:
             return #selector(ViewController.sample_async)
+        case .async_portfolio:
+            return #selector(ViewController.sample_async_portfolio)
         case .sync:
             return #selector(ViewController.sample_sync)
         case .decode:
@@ -28,7 +31,7 @@ enum SampleType: String {
         }
     }
     
-    static let all: [SampleType] = [.async, .sync, .decode, .hunterAsync]
+    static let all: [SampleType] = [.async, .async_portfolio, .sync, .decode, .hunterAsync]
 }
 
 class ViewController: UITableViewController {
@@ -77,7 +80,6 @@ class ViewController: UITableViewController {
     
     @objc
     func sample_async() {
-        
         let controller = UIAlertController.init(title: "URL", message: "Enter the url", preferredStyle: .alert)
         controller.addTextField { (text) in
             text.clearButtonMode = .whileEditing
@@ -87,7 +89,7 @@ class ViewController: UITableViewController {
         controller.addAction(UIAlertAction.init(title: "Go", style: .default, handler: { (_) in
             if let u = controller.textFields?.first?.text {
                 if !u.isEmpty {
-                    self.async(url: u)
+                    self._async(url: u)
                 }
             }
         }))
@@ -95,9 +97,53 @@ class ViewController: UITableViewController {
         self.present(controller, animated: true, completion: nil)
     }
     
-    func async(url u: String) {
+    @objc
+    func sample_async_portfolio() {
+        let controller = UIAlertController.init(title: "URL", message: "Choose an url", preferredStyle: .alert)
+        
+        let buttons: [String] = [
+            "portfolio_android",
+            "portfolio_ios",
+            "portfolio_mac",
+            "portfolio_paintings",
+            "portfolio_repos",
+            "portfolio_win"
+        ]
+        for btn in buttons {
+            controller.addAction(UIAlertAction.init(title: btn, style: .default, handler: { (action) in
+                guard let u = action.title, !u.isEmpty else {
+                    self.display("Error")
+                    return
+                }
+                self._async_portfolio(u)
+            }))
+        }
+        controller.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    func _async_portfolio(_ jsonName: String) {
+        let u = "https://meniny.cn/api/v2/\(jsonName).json"
         if let r = GhostRequest.init(u) {
-            // Asynchronous
+            ghost.data(r).async { (response, error) in
+                do {
+                    if let result: ProtfolioResponse = try response?.decode() {
+                        self.display(result)
+                    } else if let error = error {
+                        self.display("Asynchronous: Ghost error: \(error)")
+                    }
+                } catch {
+                    self.display("Asynchronous: Parse error: \(error.localizedDescription)")
+                }
+            }
+        } else {
+            self.display("Asynchronous: Error: \(u)")
+        }
+    }
+    
+    // Asynchronous
+    func _async(url u: String) {
+        if let r = GhostRequest.init(u) {
             ghost.data(r).async { (response, error) in
                 do {
                     if let object: [AnyHashable: Any] = try response?.object() {
@@ -130,7 +176,7 @@ class ViewController: UITableViewController {
         // Decode
         ghost.data(request).async { (response, error) in
             do {
-                if let result: Response = try response?.decode() {
+                if let result: AboutResponse = try response?.decode() {
                     self.display(result.about.joined(separator: "\n------\n"))
                 } else if let error = error {
                     self.display("Decode: Ghost error: \(error)")
@@ -149,7 +195,7 @@ class ViewController: UITableViewController {
                 print(pregress)
             }, completion: { (response, error) in
                 do {
-                    if let result: Response = try response?.decode() {
+                    if let result: AboutResponse = try response?.decode() {
                         self.display(result.about.joined(separator: "\n------\n"))
                     } else if let error = error {
                         self.display("NightWatch Asynchronous: Ghost error: \(error)")
@@ -160,6 +206,15 @@ class ViewController: UITableViewController {
             })
         } catch {
             self.display("NightWatch: Request error: \(error)")
+        }
+    }
+    
+    func display(_ portfolio: ProtfolioResponse, function: String = #function) {
+        DispatchQueue.main.async {
+            let next = PortfolioTableViewController.init(nibName: "PortfolioTableViewController", bundle: nil)
+            next.portfolio = portfolio
+            next.title = function
+            self.navigationController?.show(next, sender: self)
         }
     }
 

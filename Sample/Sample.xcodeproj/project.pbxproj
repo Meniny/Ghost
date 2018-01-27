@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C51E3EC201C240700418EF5 /* PortfolioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C51E3EA201C240700418EF5 /* PortfolioTableViewController.swift */; };
+		5C51E3ED201C240700418EF5 /* PortfolioTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C51E3EB201C240700418EF5 /* PortfolioTableViewController.xib */; };
 		5C8C0E7C2018F2AE00C3DC06 /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8C0E7A2018F2AE00C3DC06 /* DisplayViewController.swift */; };
 		5C8C0E7D2018F2AE00C3DC06 /* DisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C8C0E7B2018F2AE00C3DC06 /* DisplayViewController.xib */; };
 		64DE600D2018AFFC00EF60C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DE600C2018AFFC00EF60C3 /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		0CE951D399A2F9B87AAF5153 /* Pods_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A81CA63E5D315C9A0151C2A /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
+		5C51E3EA201C240700418EF5 /* PortfolioTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewController.swift; sourceTree = "<group>"; };
+		5C51E3EB201C240700418EF5 /* PortfolioTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioTableViewController.xib; sourceTree = "<group>"; };
 		5C8C0E7A2018F2AE00C3DC06 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		5C8C0E7B2018F2AE00C3DC06 /* DisplayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayViewController.xib; sourceTree = "<group>"; };
 		64DE60092018AFFC00EF60C3 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +83,8 @@
 				64DE601E2018B3A000EF60C3 /* Response.swift */,
 				64DE600C2018AFFC00EF60C3 /* AppDelegate.swift */,
 				64DE600E2018AFFC00EF60C3 /* ViewController.swift */,
+				5C51E3EA201C240700418EF5 /* PortfolioTableViewController.swift */,
+				5C51E3EB201C240700418EF5 /* PortfolioTableViewController.xib */,
 				5C8C0E7A2018F2AE00C3DC06 /* DisplayViewController.swift */,
 				5C8C0E7B2018F2AE00C3DC06 /* DisplayViewController.xib */,
 				64DE60102018AFFC00EF60C3 /* Main.storyboard */,
@@ -162,6 +168,7 @@
 				64DE60172018AFFC00EF60C3 /* LaunchScreen.storyboard in Resources */,
 				64DE60142018AFFC00EF60C3 /* Assets.xcassets in Resources */,
 				64DE60122018AFFC00EF60C3 /* Main.storyboard in Resources */,
+				5C51E3ED201C240700418EF5 /* PortfolioTableViewController.xib in Resources */,
 				5C8C0E7D2018F2AE00C3DC06 /* DisplayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C51E3EC201C240700418EF5 /* PortfolioTableViewController.swift in Sources */,
 				64DE600F2018AFFC00EF60C3 /* ViewController.swift in Sources */,
 				64DE600D2018AFFC00EF60C3 /* AppDelegate.swift in Sources */,
 				64DE601F2018B3A000EF60C3 /* Response.swift in Sources */,
