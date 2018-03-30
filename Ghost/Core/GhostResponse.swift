@@ -82,11 +82,14 @@ extension GhostResponse {
     }
 
     private func handle(_ error: Error) -> Error {
-        switch error as! GhostError {
+        guard let e = error as? GhostError else {
+            return error
+        }
+        switch e {
         case .parse(let transformCode, let message, let object, let underlying):
             return GhostError.parse(code: transformCode ?? statusCode, message: message, object: object ?? responseObject, underlying: underlying)
         default:
-            return error
+            return e
         }
     }
 

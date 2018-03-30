@@ -34,7 +34,7 @@ extension GhostURLSession {
 
     open func download(_ request: URLRequest) throws -> GhostTask {
         guard let ghostRequest = request.ghostRequest else {
-            throw ghostError(URLError(.badURL))!
+            throw ghostError(URLError(.badURL))
         }
         return download(ghostRequest)
     }
@@ -45,7 +45,7 @@ extension GhostURLSession {
 
     open func download(_ urlString: String, cachePolicy: GhostRequest.GhostCachePolicy? = nil, timeoutInterval: TimeInterval? = nil) throws -> GhostTask {
         guard let url = URL(string: urlString) else {
-            throw ghostError(URLError(.badURL))!
+            throw ghostError(URLError(.badURL))
         }
         return download(url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
     }

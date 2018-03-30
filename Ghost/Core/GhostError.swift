@@ -11,6 +11,41 @@ import Foundation
 public enum GhostError: Error {
     case ghost(code: Int?, message: String, headers: [AnyHashable : Any]?, object: Any?, underlying: Error?)
     case parse(code: Int?, message: String, object: Any?, underlying: Error?)
+    
+    public var code: Int? {
+        switch self {
+        case .ghost(code: let c, message: _, headers: _, object: _, underlying: _):
+            return c ?? _code
+        case .parse(code: let c, message: _, object: _, underlying: _):
+            return c ?? _code
+        }
+    }
+    
+    public var underlying: Error? {
+        switch self {
+        case .ghost(code: _, message: _, headers: _, object: _, underlying: let u):
+            return u
+        case .parse(code: _, message: _, object: _, underlying: let u):
+            return u
+        }
+    }
+    
+    public var message: String? {
+        switch self {
+        case .ghost(code: _, message: let m, headers: _, object: _, underlying: _):
+            return m ?? localizedDescription
+        case .parse(code: _, message: let m, object: _, underlying: _):
+            return m ?? localizedDescription
+        }
+    }
+    
+    public var headers: [AnyHashable : Any]? {
+        switch self {
+        case .ghost(code: _, message: _, headers: let h, object: _, underlying: _):
+            return h
+        default: return nil
+        }
+    }
 }
 
 extension GhostError {

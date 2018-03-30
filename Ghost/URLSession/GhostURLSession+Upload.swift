@@ -17,7 +17,7 @@ extension GhostURLSession {
 
     open func upload(_ streamedRequest: URLRequest) throws -> GhostTask {
         guard let ghostRequest = streamedRequest.ghostRequest else {
-            throw ghostError(URLError(.badURL))!
+            throw ghostError(URLError(.badURL))
         }
         return upload(ghostRequest)
     }
@@ -28,7 +28,7 @@ extension GhostURLSession {
 
     open func upload(_ streamedURLString: String, cachePolicy: GhostRequest.GhostCachePolicy? = nil, timeoutInterval: TimeInterval? = nil) throws -> GhostTask {
         guard let url = URL(string: streamedURLString) else {
-            throw ghostError(URLError(.badURL))!
+            throw ghostError(URLError(.badURL))
         }
         return upload(url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
     }
@@ -47,7 +47,7 @@ extension GhostURLSession {
 
     open func upload(_ request: URLRequest, data: Data) throws -> GhostTask {
         guard let ghostRequest = request.ghostRequest else {
-            throw ghostError(URLError(.badURL))!
+            throw ghostError(URLError(.badURL))
         }
         return upload(ghostRequest, data: data)
     }
@@ -58,7 +58,7 @@ extension GhostURLSession {
 
     open func upload(_ urlString: String, data: Data, cachePolicy: GhostRequest.GhostCachePolicy? = nil, timeoutInterval: TimeInterval? = nil) throws -> GhostTask {
         guard let url = URL(string: urlString) else {
-            throw ghostError(URLError(.badURL))!
+            throw ghostError(URLError(.badURL))
         }
         return upload(url, data: data, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
     }
@@ -77,7 +77,7 @@ extension GhostURLSession {
 
     open func upload(_ request: URLRequest, fileURL: URL) throws -> GhostTask {
         guard let ghostRequest = request.ghostRequest else {
-            throw ghostError(URLError(.badURL))!
+            throw ghostError(URLError(.badURL))
         }
         return upload(ghostRequest, fileURL: fileURL)
     }
@@ -88,7 +88,7 @@ extension GhostURLSession {
 
     open func upload(_ urlString: String, fileURL: URL, cachePolicy: GhostRequest.GhostCachePolicy? = nil, timeoutInterval: TimeInterval? = nil) throws -> GhostTask {
         guard let url = URL(string: urlString) else {
-            throw ghostError(URLError(.badURL))!
+            throw ghostError(URLError(.badURL))
         }
         return upload(url, fileURL: fileURL, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
     }

@@ -22,7 +22,7 @@ extension GhostURLSession {
 
     open func data(_ request: URLRequest) throws -> GhostTask {
         guard let ghostRequest = request.ghostRequest else {
-            throw ghostError(URLError(.badURL))!
+            throw ghostError(URLError(.badURL))
         }
         return data(ghostRequest)
     }
@@ -33,7 +33,7 @@ extension GhostURLSession {
 
     open func data(_ urlString: String, cachePolicy: GhostRequest.GhostCachePolicy? = nil, timeoutInterval: TimeInterval? = nil) throws -> GhostTask {
         guard let url = URL(string: urlString) else {
-            throw ghostError(URLError(.badURL))!
+            throw ghostError(URLError(.badURL))
         }
         return data(url, cachePolicy: cachePolicy, timeoutInterval: timeoutInterval)
     }

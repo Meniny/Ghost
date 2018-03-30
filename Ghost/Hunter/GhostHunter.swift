@@ -11,8 +11,8 @@ public enum GhostHunterDispatch {
 
 public enum GhostHunterBodyType {
     case string(String, encoding: String.Encoding, lossy: Bool)
-    case json(Encodable)
-    case plist(Encodable)
+//    case json(Encodable)
+//    case plist(Encodable)
     case jsonObject([String: Any], options: JSONSerialization.WritingOptions)
     case plistObject([String: Any], format: PropertyListSerialization.PropertyListFormat, options: PropertyListSerialization.WriteOptions)
     case stream(InputStream)
@@ -102,15 +102,15 @@ internal struct Spoil {
                 case .jsonObject(let json, let options):
                     try self.requestBuiler.setJSONBody(json, options: options)
                     break
-                case .json(let json):
-                    try self.requestBuiler.setJSONObject(json as? Encodable)
-                    break
+//                case .json(let json):
+//                    try self.requestBuiler.setJSONObject(json as? Encodable)
+//                    break
                 case .plistObject(let plist, let format, let options):
                     try self.requestBuiler.setPlistBody(plist, format: format, options: options)
                     break
-                case .plist(let plist):
-                    try self.requestBuiler.setPlistObject(plist as? Encodable)
-                    break
+//                case .plist(let plist):
+//                    try self.requestBuiler.setPlistObject(plist as? Encodable)
+//                    break
                 case .multipartFormData(let data):
                     try self.requestBuiler.setMultipartFormData(data)
                     break
