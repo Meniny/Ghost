@@ -28,7 +28,7 @@
 		5C8C0E7A2018F2AE00C3DC06 /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		5C8C0E7B2018F2AE00C3DC06 /* DisplayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplayViewController.xib; sourceTree = "<group>"; };
 		64735717206E3B4200ED6774 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		64735718206E3B4200ED6774 /* Ghost.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = Ghost.podspec; path = ../Ghost.podspec; sourceTree = "<group>"; };
+		64735718206E3B4200ED6774 /* Ghost.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = Ghost.podspec; path = ../Ghost.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		64735719206E3B4200ED6774 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
 		6473571A206E3B4200ED6774 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		6473571B206E3B4200ED6774 /* _config.yml */ = {isa = PBXFileReference; lastKnownFileType = text; name = _config.yml; path = ../_config.yml; sourceTree = "<group>"; };

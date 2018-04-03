@@ -149,11 +149,11 @@ extension GhostURLSession {
         return builder.build()
     }
 
-    func ghostError(_ error: Error?, _ responseObject: Any? = nil, _ response: URLResponse? = nil) -> GhostError {
+    func ghostError(_ error: Error?, _ responseObject: Any? = nil, _ response: URLResponse? = nil) -> GhostError? {
         if let error = error {
             return GhostError.ghost(code: error._code, message: error.localizedDescription, headers: (response as? HTTPURLResponse)?.allHeaderFields, object: responseObject, underlying: error)
         }
-        return GhostError.ghost(code: 0, message: "Unknown error", headers: nil, object: nil, underlying: nil)
+        return nil
     }
 
     func process(_ ghostTask: GhostTask?, _ ghostResponse: GhostResponse?, _ ghostError: GhostError?) {
