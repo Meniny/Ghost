@@ -128,8 +128,8 @@ class ViewController: UITableViewController {
         if let r = GhostRequest.init(u) {
             ghost.data(r).async { (response, error) in
                 do {
-                    if let result: ProtfolioResponse = try response?.decode() {
-                        self.display(result)
+                    if let result: Portfolio = try response?.decode() {
+                        self.display("\(result)")
                     } else if let error = error {
                         self.display("Asynchronous: Ghost error: \(error)")
                     }
