@@ -151,15 +151,7 @@ extension GhostURLSession {
 
     func ghostError(_ error: Error?, _ responseObject: Any? = nil, _ response: URLResponse? = nil) -> GhostError? {
         if let error = error {
-            if let response = response as? HTTPURLResponse {
-                return GhostError.responseError(from: error, code: response.statusCode)
-            }
             return GhostError.ghost(code: error._code, message: error.localizedDescription, headers: (response as? HTTPURLResponse)?.allHeaderFields, object: responseObject, underlying: error)
-        }
-        if responseObject != nil {
-            if let response = response as? HTTPURLResponse {
-                return GhostError.responseError(from: error, code: response.statusCode)
-            }            
         }
         return nil
     }
