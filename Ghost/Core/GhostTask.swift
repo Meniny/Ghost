@@ -117,7 +117,7 @@ extension GhostTask {
             } else if let error = error {
                 throw error
             } else {
-                throw GhostError.ghost(code: error?._code, message: error?.localizedDescription ?? "", headers: response?.headers, object: response?.responseObject, underlying: error)
+                throw GhostError.ghost(code: error?.code, message: error?.message ?? "", headers: response?.headers, object: response?.responseObject, underlying: error?.underlying)
             }
         }
         dispatchSemaphore = DispatchSemaphore(value: 0)

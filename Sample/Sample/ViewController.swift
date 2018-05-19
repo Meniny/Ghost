@@ -37,6 +37,7 @@ enum SampleType: String {
 class ViewController: UITableViewController {
 
     let ghost: Ghost = GhostURLSession.shared
+//    let url = "http://10.9.175.248:8080/about.json"
     let url = "https://meniny.cn/api/v2/about.json"
     lazy var request: GhostRequest = {
         let r = GhostRequest.init(self.url)
@@ -127,8 +128,8 @@ class ViewController: UITableViewController {
         if let r = GhostRequest.init(u) {
             ghost.data(r).async { (response, error) in
                 do {
-                    if let result: ProtfolioResponse = try response?.decode() {
-                        self.display(result)
+                    if let result: Portfolio = try response?.decode() {
+                        self.display("\(result)")
                     } else if let error = error {
                         self.display("Asynchronous: Ghost error: \(error)")
                     }

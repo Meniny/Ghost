@@ -11,6 +11,48 @@ import Foundation
 public enum GhostError: Error {
     case ghost(code: Int?, message: String, headers: [AnyHashable : Any]?, object: Any?, underlying: Error?)
     case parse(code: Int?, message: String, object: Any?, underlying: Error?)
+//    case response(code: Int?, message: String, underlying: Error?)
+    
+    public var code: Int? {
+        switch self {
+        case .ghost(code: let c, message: _, headers: _, object: _, underlying: _):
+            return c ?? _code
+        case .parse(code: let c, message: _, object: _, underlying: _):
+            return c ?? _code
+//        case .response(code: let c, message: _, underlying: _):
+//            return c ?? _code
+        }
+    }
+    
+    public var underlying: Error? {
+        switch self {
+        case .ghost(code: _, message: _, headers: _, object: _, underlying: let u):
+            return u
+        case .parse(code: _, message: _, object: _, underlying: let u):
+            return u
+//        case .response(code: _, message: _, underlying: let u):
+//            return u
+        }
+    }
+    
+    public var message: String? {
+        switch self {
+        case .ghost(code: _, message: let m, headers: _, object: _, underlying: _):
+            return m ?? localizedDescription
+        case .parse(code: _, message: let m, object: _, underlying: _):
+            return m ?? localizedDescription
+//        case .response(code: _, message: let m, underlying: _):
+//            return m ?? localizedDescription
+        }
+    }
+    
+    public var headers: [AnyHashable : Any]? {
+        switch self {
+        case .ghost(code: _, message: _, headers: let h, object: _, underlying: _):
+            return h
+        default: return nil
+        }
+    }
 }
 
 extension GhostError {
@@ -21,6 +63,8 @@ extension GhostError {
             return try objectTransformation(code, object, underlying)
         case .parse(let code, _, let object, let underlying):
             return try objectTransformation(code, object, underlying)
+//        case .response(let code, _, let underlying):
+//            return try objectTransformation(code, nil, underlying)
         }
     }
 
@@ -30,6 +74,8 @@ extension GhostError {
             return try decodeTransformation(code, object, underlying)
         case .parse(let code, _, let object, let underlying):
             return try decodeTransformation(code, object, underlying)
+//        case .response(let code, _, let underlying):
+//            return try decodeTransformation(code, nil, underlying)
         }
     }
 
@@ -64,7 +110,7 @@ extension GhostError {
 
     public var localizedDescription: String {
         switch self {
-        case .ghost(_, let message, _, _, let underlying), .parse(_, let message, _, let underlying):
+        case .ghost(_, let message, _, _, let underlying), .parse(_, let message, _, let underlying)://, .response(code: _, let message, let underlying):
             if let localizedDescription = underlying?.localizedDescription, localizedDescription != message {
                 return message + " " + localizedDescription
             }
@@ -86,7 +132,7 @@ extension GhostError: CustomDebugStringConvertible {
 
     public var debugDescription: String {
         switch self {
-        case .ghost(let code, _, _, _, _), .parse(let code, _, _, _):
+        case .ghost(let code, _, _, _, _), .parse(let code, _, _, _)://, .response(let code, _, _):
             if let code = code?.description {
                 return code + " " + localizedDescription
             }
@@ -104,22 +150,29 @@ extension GhostError: CustomNSError {
             return code ?? 0
         case .parse(let code, _, _, _):
             return code ?? 1
+//        case .response(let code, _, _):
+//            return code ?? 0
         }
     }
 
     public var errorUserInfo: [String : Any] {
         switch self {
-        case .ghost(_, let message, _, _, let underlying), .parse(_, let message, _, let underlying):
+        case .ghost(_, let message, _, _, let underlying), .parse(_, let message, _, let underlying)://, .response(_, let message, let underlying):
             guard let underlying = underlying else {
                 return [NSLocalizedDescriptionKey: localizedDescription, NSLocalizedFailureReasonErrorKey: message]
             }
             return [NSLocalizedDescriptionKey: localizedDescription, NSLocalizedFailureReasonErrorKey: message, NSUnderlyingErrorKey: underlying]
         }
+        
     }
 
 }
 
 public extension GhostError {
+//    public static func responseError(from error: Error?, code: Int) -> GhostError {
+//        return GhostError.response(code: code, message: error?.localizedDescription ?? "Response Error", underlying: error)
+//    }
+    
     public static func ghostError(from error: Error) -> GhostError {
         return GhostError.ghost(code: error._code,
                                 message: error.localizedDescription,
